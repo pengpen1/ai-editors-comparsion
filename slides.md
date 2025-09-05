@@ -636,8 +636,8 @@ class: text-center
 
 <div class="mt-6 space-y-2 text-sm">
 <div>💬 欢迎交流AI编程经验</div>
-<div>📧 联系方式：your-email@example.com</div>
-<div>🔗 项目地址：github.com/your-repo</div>
+<div>📧 联系方式：https://github.com/pengpen1</div>
+<div>🔗 项目地址：https://github.com/pengpen1/ai-editors-comparsion</div>
 </div>
 
 <div class="mt-8">
