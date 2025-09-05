@@ -1,641 +1,648 @@
 ---
-# You can also start simply with 'default'
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
+theme: dracula
+background: https://images.unsplash.com/photo-1461749280684-dccba630e2f6
+title: AI编辑器调研报告
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
+  ## AI编辑器调研报告
+  市面上主流AI编辑器深度评测与对比分析
+  
+  2025年AI辅助编程工具调研
 class: text-center
-# https://sli.dev/features/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# open graph
-seoMeta:
-  # By default, Slidev will use ./og-image.png if it exists,
-  # or generate one from the first slide if not found.
-  ogImage: auto
-  # ogImage: https://cover.sli.dev
+highlighter: shiki
+lineNumbers: false
 ---
 
-# Welcome to Slidev
+# AI 编辑器调研报告
 
-Presentation slides for developers
+## 🚀 市面主流AI编辑器深度评测
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+<div class="pt-12">
+  <span @click="$slidev.nav.next" class="px-4 py-2 rounded cursor-pointer bg-white bg-opacity-10 hover:bg-opacity-20">
+    开始探索 <carbon:arrow-right class="inline"/>
+  </span>
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
+<div class="abs-br m-6 flex gap-2">
+  <div class="text-sm opacity-50">2025年AI辅助编程工具调研</div>
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+封面页：展示报告主题和调研范围
 -->
 
 ---
 transition: fade-out
 ---
 
-# What is Slidev?
+# 介绍与目标
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+## 🎯 本次调研目的
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+<div v-click>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+### 调研背景
+- AI编程辅助工具爆发式增长
+- 开发者需求日益增加  
+- 工具选择困难
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+</div>
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+<div v-click>
+
+### 调研目标
+- 🔍 **全面评测** - 对比市面主流AI编辑器
+- 📊 **数据分析** - 提供客观的性能和体验评估
+- 💡 **选型建议** - 为不同场景提供最佳实践
+- 🚀 **趋势预测** - 探索AI编程未来发展方向
+
+</div>
 
 <!--
-Here is another comment.
+介绍调研的目标和范围
 -->
 
 ---
 transition: slide-up
-level: 2
 ---
 
-# Navigation
+# 市场概览
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+## 📈 AI编辑器市场现状
 
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
+<div class="grid grid-cols-2 gap-8">
 
 <div v-click>
 
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
+### 市场规模
+```mermaid {scale: 0.9}
+graph LR
+    A[2023年] -->|增长300%| B[2024年]
+    B -->|预计增长500%| C[2025年]
 ```
 
 </div>
 
-<br>
+<div v-click>
 
-<v-click>
+### 主要玩家
+- **独立编辑器**: Cursor, Warp, Trae
+- **插件类**: Copilot, Cline, Augment
+- **终端类**: Claude Code, Gemini CLI
+- **新兴力量**: Kiro, Codex
 
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
+</div>
 
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
+</div>
 
-</v-click>
+<div v-click class="mt-8">
 
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
+### 💰 市场投资热度
+- 2024年融资总额超过 **$10亿**
+- Cursor估值达到 **$4亿**
+- GitHub Copilot用户超过 **100万**
 
 </div>
 
 ---
+transition: fade
+---
 
-# Motions
+# 对比维度说明
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+## 📊 评测维度设计
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
+<div class="grid grid-cols-2 gap-8 mt-6">
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
+<div>
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
+### 技术能力
+- ⭐ **代码质量** - 生成代码的准确性和优雅度
+- ⭐ **智能程度** - AI理解上下文的能力
+- ⭐ **响应速度** - 代码建议的实时性
+- ⭐ **多语言支持** - 编程语言覆盖范围
+
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+<div>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+### 用户体验
+- 👤 **使用难度** - 学习曲线和上手成本
+- 💰 **费用成本** - 订阅价格和性价比
+- 📈 **增效比例** - 实际编码效率提升
+- 🔧 **集成能力** - 与现有工具链的兼容性
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+</div>
+
+</div>
+
+<div v-click class="mt-8 p-4 bg-blue-500/10 rounded-lg">
+
+### 🎯 评分标准
+每个维度采用 **五星评分制** ，综合用户反馈和实测数据得出
 
 </div>
 
 ---
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
+layout: two-cols
 ---
 
-# Diagrams
+# Cursor
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+## ✨ AI原生编辑器先锋
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+<img
+  src=""
+  alt="Cursor使用截图"
+  class="rounded-lg shadow-lg mt-4"
+/>
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+### 核心优势
+- 🚀 **Tab补全业界第一**
+- 🧠 智能上下文理解
+- 🎨 优雅的UI设计
 
-```mermaid {theme: 'neutral', scale: 0.8}
+::right::
+
+<div class="ml-8 mt-16">
+
+### 评分卡片
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 代码质量 | ⭐⭐⭐⭐ | 高质量代码生成 |
+| 智能程度 | ⭐⭐⭐⭐ | 强大的上下文理解 |
+| 使用难度 | ⭐ | 极易上手 |
+| 增效比例 | **50%** | 显著提升效率 |
+
+<div v-click class="mt-6 p-4 bg-green-500/10 rounded">
+
+### 💬 用户评价
+> "Tab补全功能改变了我的编码方式，但内存占用确实有点高"
+
+</div>
+
+</div>
+
+---
+layout: two-cols
+---
+
+# Claude Code
+
+## 🤖 强大的终端AI助手
+
+<img
+  src=""
+  alt="Claude Code终端界面"
+  class="rounded-lg shadow-lg mt-4"
+/>
+
+### 核心优势
+- 💪 **基于Claude 3.5模型**
+- 🔍 深度代码理解
+- 📝 优秀的文档生成
+
+::right::
+
+<div class="ml-8 mt-16">
+
+### 评分卡片
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 代码质量 | ⭐⭐⭐⭐ | 高质量输出 |
+| 智能程度 | ⭐⭐⭐⭐ | 强大的AI能力 |
+| 使用难度 | ⭐⭐ | 终端操作需适应 |
+| 费用 | 💰💰 | 相对较贵 |
+
+<div v-click class="mt-6 p-4 bg-yellow-500/10 rounded">
+
+### ⚠️ 注意事项
+- 价格偏高
+- 中转商封号问题严重
+- 需要稳定的网络环境
+
+</div>
+
+</div>
+
+---
+layout: two-cols
+---
+
+# GitHub Copilot
+
+## 🐙 最流行的AI编程助手
+
+<img
+  src=""
+  alt="GitHub Copilot代码补全"
+  class="rounded-lg shadow-lg mt-4"
+/>
+
+### 核心优势
+- 🌍 **生态系统完善**
+- 🔧 VS Code深度集成
+- 🆓 学生免费使用
+
+::right::
+
+<div class="ml-8 mt-16">
+
+### 评分卡片
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 代码质量 | ⭐⭐⭐⭐ | 稳定可靠 |
+| 智能程度 | ⭐⭐⭐⭐ | 持续优化中 |
+| 使用难度 | ⭐ | 即插即用 |
+| 性价比 | ⭐⭐⭐⭐⭐ | 免费/优惠多 |
+
+<div v-click class="mt-6 p-4 bg-purple-500/10 rounded">
+
+### 🎓 特别优势
+- 学生认证后完全免费
+- 与GitHub深度集成
+- 社区支持活跃
+
+</div>
+
+</div>
+
+---
+layout: two-cols
+---
+
+# Warp
+
+## ⚡ AI超级终端
+
+<img
+  src=""
+  alt="Warp终端界面"
+  class="rounded-lg shadow-lg mt-4"
+/>
+
+### 核心优势
+- 🖥️ **革命性终端体验**
+- 🤖 AI命令建议
+- 📋 智能历史管理
+
+::right::
+
+<div class="ml-8 mt-16">
+
+### 评分卡片
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 代码质量 | ⭐⭐⭐⭐ | 命令生成准确 |
+| 智能程度 | ⭐⭐⭐⭐ | 智能命令推荐 |
+| 使用难度 | ⭐⭐⭐ | 无中文支持 |
+| 增效比例 | **40%** | 终端效率提升 |
+| 费用 | $18/月 | 中等价位 |
+
+<div v-click class="mt-6 p-4 bg-blue-500/10 rounded">
+
+### 🌟 独特价值
+虽非传统编辑器，但其超级终端体验确实提升开发效率
+
+</div>
+
+</div>
+
+---
+layout: two-cols  
+---
+
+# Trae
+
+## 🎯 精准的AI编码助手
+
+<img
+  src=""
+  alt="Trae编辑器界面"
+  class="rounded-lg shadow-lg mt-4"
+/>
+
+### 核心优势
+- 🎯 **支持选中元素**
+- 💡 对提示词敏感
+- 💰 价格实惠
+
+::right::
+
+<div class="ml-8 mt-16">
+
+### 评分卡片
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 代码质量 | ⭐⭐⭐ | 良好水准 |
+| 智能程度 | ⭐⭐⭐ | 需要清晰提示 |
+| 使用难度 | ⭐ | 简单易用 |
+| 增效比例 | **35%** | 稳定提升 |
+| 费用 | $3/月 | 极具性价比 |
+
+<div v-click class="mt-6 p-4 bg-green-500/10 rounded">
+
+### 💡 使用建议
+需要使用者理清需求和逻辑，适合有经验的开发者
+
+</div>
+
+</div>
+
+---
+transition: slide-left
+---
+
+# 关键对比表格
+
+## 📊 综合对比一览
+
+<div class="overflow-x-auto mt-6">
+
+| 产品 | 类型 | 代码质量 | 智能程度 | 使用难度 | 增效比例 | 费用 | 推荐指数 |
+|------|------|----------|----------|----------|----------|------|----------|
+| **Cursor** | 编辑器 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐ | 50% | $20/月 | ⭐⭐⭐⭐⭐ |
+| **Claude Code** | 终端 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ | 45% | $25/月 | ⭐⭐⭐⭐ |
+| **Copilot** | 插件 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐ | 40% | $10/月 | ⭐⭐⭐⭐⭐ |
+| **Warp** | 终端 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | 40% | $18/月 | ⭐⭐⭐⭐ |
+| **Trae** | 编辑器 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐ | 35% | $3/月 | ⭐⭐⭐ |
+| **Cline** | 插件 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | 30% | Token | ⭐⭐⭐ |
+| **Gemini CLI** | 终端 | ⭐⭐ | ⭐⭐ | ⭐⭐ | 20% | 免费 | ⭐⭐ |
+
+</div>
+
+<div v-click class="mt-6 p-4 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg">
+
+### 🏆 编辑推荐
+- **最佳综合体验**: Cursor
+- **最佳性价比**: GitHub Copilot (学生) / Trae (付费用户)
+- **最佳创新**: Warp
+
+</div>
+
+---
+transition: fade
+---
+
+# 优缺点总结
+
+## ⚖️ 各工具优劣势分析
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div>
+
+### ✅ 优势总结
+
+<div v-click>
+
+**Cursor**
+- Tab补全无敌，编码体验极佳
+
+</div>
+
+<div v-click>
+
+**Copilot**  
+- 生态完善，与GitHub深度集成
+
+</div>
+
+<div v-click>
+
+**Warp**
+- 终端体验革命性提升
+
+</div>
+
+<div v-click>
+
+**Trae**
+- 性价比极高，功能实用
+
+</div>
+
+</div>
+
+<div>
+
+### ❌ 劣势总结
+
+<div v-click>
+
+**Cursor**
+- 内存占用较大，机器要求高
+
+</div>
+
+<div v-click>
+
+**Claude Code**
+- 价格偏贵，封号风险高
+
+</div>
+
+<div v-click>
+
+**Cline**
+- 需自配模型，消耗Token快
+
+</div>
+
+<div v-click>
+
+**Gemini CLI**
+- 功能基础，智能程度有限
+
+</div>
+
+</div>
+
+</div>
+
+---
+transition: slide-up
+---
+
+# 选型建议
+
+## 🎯 不同场景的最佳选择
+
+<div class="space-y-6 mt-6">
+
+<div v-click class="p-4 bg-blue-500/10 rounded-lg">
+
+### 👨‍🎓 学生/个人开发者
+**推荐**: GitHub Copilot (免费) + Trae ($3/月)
+- 成本低，功能够用
+- 学习曲线平缓
+
+</div>
+
+<div v-click class="p-4 bg-green-500/10 rounded-lg">
+
+### 🏢 专业开发团队  
+**推荐**: Cursor + GitHub Copilot
+- 效率最大化
+- 团队协作友好
+
+</div>
+
+<div v-click class="p-4 bg-purple-500/10 rounded-lg">
+
+### 🚀 全栈开发者
+**推荐**: Warp + Cursor
+- 终端和编辑器双管齐下
+- 全方位效率提升
+
+</div>
+
+<div v-click class="p-4 bg-yellow-500/10 rounded-lg">
+
+### 💰 预算有限用户
+**推荐**: Gemini CLI (免费) + VS Code插件
+- 零成本起步
+- 基础功能满足
+
+</div>
+
+</div>
+
+---
+transition: fade-out
+---
+
+# 未来趋势
+
+## 🔮 AI编程的未来展望
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+
+<div>
+
+### 📈 技术趋势
+
+<div v-click>
+
+```mermaid {scale: 0.8}
 graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
+    A[当前: 代码补全] --> B[近期: 智能重构]
+    B --> C[中期: 自主编程]
+    C --> D[远期: AI架构师]
 ```
 
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
+</div>
+
+<div v-click>
+
+### 🌟 发展预测
+
+- **2025年**: 多模态编程助手普及
+- **2026年**: AI自主解决复杂Bug
+- **2027年**: 人机协同编程成主流
+- **2028年**: AI参与系统架构设计
+
+</div>
+
+</div>
+
+<div v-click class="mt-8 p-4 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg">
+
+### 💡 行业洞察
+- **开源化趋势**: 更多开源AI编程工具涌现
+- **本地化部署**: 企业级本地AI编程助手需求增长
+- **定制化服务**: 针对特定领域的AI编程工具细分
+
+</div>
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
+transition: slide-left
 ---
 
-# Draggable Elements
+# 个人使用技巧
 
-Double-click on the draggable elements to edit their positions.
+## 💡 提升AI编程效率的实践经验
 
-<br>
+<div class="space-y-4 mt-6">
 
-###### Directive Usage
+<div v-click>
 
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+### 1️⃣ 提示词优化
+```markdown
+❌ "写一个函数"
+✅ "写一个TypeScript函数，接收用户数组，返回按年龄排序的结果"
 ```
 
-<br>
+</div>
 
-###### Component Usage
+<div v-click>
 
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
+### 2️⃣ 上下文管理
+- 保持代码文件精简，避免超长文件
+- 及时清理无用注释和代码
+- 使用明确的变量和函数命名
+
+</div>
+
+<div v-click>
+
+### 3️⃣ 工具组合使用
+```mermaid {scale: 0.7}
+graph LR
+    A[需求分析] -->|Claude| B[架构设计]
+    B -->|Cursor| C[代码实现]
+    C -->|Copilot| D[测试完善]
+    D -->|Warp| E[部署运维]
 ```
 
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
+</div>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+<div v-click class="p-4 bg-green-500/10 rounded-lg">
 
-###### Draggable Arrow
+### 🚀 效率提升秘诀
+合理组合不同工具的优势，形成个人高效工作流
 
-```md
-<v-drag-arrow two-way />
-```
+</div>
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+</div>
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# Q&A
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+## 🤔 提问与讨论
 
-<PoweredBySlidev mt-10 />
+<div class="mt-12">
+
+### 感谢观看！
+
+<div class="mt-8 space-y-4">
+<div>💬 欢迎交流AI编程经验</div>
+<div>📧 联系方式：your-email@example.com</div>
+<div>🔗 项目地址：github.com/your-repo</div>
+</div>
+
+</div>
+
+<div class="mt-12">
+  <span @click="$slidev.nav.go(1)" class="px-4 py-2 rounded cursor-pointer bg-white bg-opacity-10 hover:bg-opacity-20">
+    回到开始 <carbon:arrow-right class="inline"/>
+  </span>
+</div>
+
+<!--
+结束页：感谢与联系方式
+-->
